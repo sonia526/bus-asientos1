@@ -1,10 +1,23 @@
-var celdas = document.getElementsByTagName('td');
-for (var i = 0; i < celdas.length; i++) {
-    celdas[i].addEventListener('click',redirect,false);
-}
 
-var numAsiento="";
-var celdaActual;
+function datos_Pasajero(asiento, nombre, apellido, iddni){
+    this.asiento = asiento;
+    this.nombre= nombre;
+    this.apellido = apellido;
+    this.iddni = iddni;
+};
+function  asientos(buscar, listar, cancelar, reservar){
+  this.isBusy =false;
+  this.reservar=function(){
+    var mostrar=document.getElementById("mostrar");
+    var numeroAsiento = parseInt (mostrar.textContent);
+   if (numeroAsiento.length === 0)
+      return;
+    arreglo[numeroAsiento-1] = {
+        nombre: document.getElementById("nombre").value,
+        apellido: document.getElementById("apellido").value,
+        dni: document.getElementById("eldni").value,
+    }
+
 
 function redirect(event){
     document.getElementById("mostrar").innerHTML= (event.target.textContent);
@@ -31,12 +44,8 @@ var pasajeros = [];
 console.log(pasajeros);
 var listando = document.getElementById('lista');
 
-function datos_Pasajero(asiento, nombre, apellido, iddni){
-    this.asiento = asiento;
-    this.nombre= nombre;
-    this.apellido = apellido;
-    this.iddni = iddni;
-};
+//bueno aca era su posicion anterior function datos_Pasajero(asiento, nombre, apellido, iddni){
+
 
 datos_Pasajero.prototype.toHTML = function(){
     var html = '';
